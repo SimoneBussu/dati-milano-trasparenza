@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"C:\\\\Users\\\\simon\\\\OneDrive\\\\Desktop\\\\GitHub\\\\dati-milano-trasparenza\\\\aree-carico-scarico\")",
+      "PowerShell(python --version)",
+      "PowerShell(python -c \"import geopandas; print\\('geopandas ok'\\)\" 2>&1)",
+      "PowerShell(python -c \"import shapefile; print\\('pyshp installed ok'\\)\")",
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; python \"C:\\\\Users\\\\simon\\\\OneDrive\\\\Desktop\\\\GitHub\\\\dati-milano-trasparenza\\\\aree-carico-scarico\\\\compare_data.py\" 2>&1)"
+    ]
+  }
+}

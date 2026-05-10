@@ -1,0 +1,11 @@
+# Claude Code internal files
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

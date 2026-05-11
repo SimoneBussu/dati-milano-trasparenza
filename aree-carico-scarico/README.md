@@ -39,6 +39,8 @@ Versione tabellare dei dati, derivata dalla mappa interattiva. Contiene 2.105 ri
 **File HTML (`mappa_aree_carico_scarico_milano.html`)**:
 Mappa interattiva generata a partire dallo shapefile. Gli stalli sono visualizzati come punti (centroide della geometria, riproiettati in WGS84) con i confini dei 9 municipi di Milano sovrapposti. È stato aggiunto il campo `municipio` tramite spatial join con i confini municipali.
 
+![Mappa aree di carico e scarico - Milano](aree_carico_scarico_milano.png)
+
 ## Testo richiesta inoltrata
 
 **Periodo temporale**: dato più recente disponibile

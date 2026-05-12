@@ -4,4 +4,4 @@ Questa repository ha come obiettivo quello di condividere dati richiesti al Comu
 
 ## Dataset
 
-1. [Aree di carico e scarico](aree-carico-scarico/) — dati richiesti ad AMAT
+1. [Aree di carico e scarico](aree-carico-scarico/) - Dati sulla localizzazione delle aree scarico e scarico. · [Apri mappa ↗](https://simonebussu.github.io/dati-milano-trasparenza/aree-carico-scarico/mappa_aree_carico_scarico_milano.html)

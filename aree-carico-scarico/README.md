@@ -36,7 +36,7 @@ Shapefile fornito da AMAT contenente 2.105 stalli di carico e scarico merci sul 
 **File CSV (`aree-carico-scarico.csv`)**:
 Versione tabellare dei dati, derivata dalla mappa interattiva. Contiene 2.105 righe con le stesse colonne dello shapefile più `municipio`, `longitudine` e `latitudine` (coordinate del centroide in WGS84).
 
-**File HTML (`mappa_aree_carico_scarico_milano.html`)**:
+**File HTML (`mappa_aree_carico_scarico_milano.html`)** · [Apri mappa ↗](https://simonebussu.github.io/dati-milano-trasparenza/aree-carico-scarico/mappa_aree_carico_scarico_milano.html):
 Mappa interattiva generata a partire dallo shapefile. Gli stalli sono visualizzati come punti (centroide della geometria, riproiettati in WGS84) con i confini dei 9 municipi di Milano sovrapposti. È stato aggiunto il campo `municipio` tramite spatial join con i confini municipali.
 
 ![Mappa aree di carico e scarico - Milano](aree_carico_scarico_milano.png)

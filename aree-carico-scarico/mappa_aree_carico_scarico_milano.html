@@ -160,6 +160,34 @@
     cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
   }
   #btn-info:hover { border-color: var(--paper); color: var(--paper); }
+
+  /* Mobile panel toggle */
+  #btn-toggle-panel {
+    display: none;
+    margin-left: 8px; padding: 3px 10px;
+    background: transparent; border: 1.5px solid #4b5563;
+    border-radius: 2px; color: #9ca3af;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
+  }
+  #btn-toggle-panel:hover { border-color: var(--paper); color: var(--paper); }
+  #btn-panel-close { display: none; }
+
+  @media (max-width: 640px) {
+    #btn-toggle-panel { display: block; }
+    #btn-panel-close {
+      display: block; position: absolute; top: 12px; right: 12px;
+      background: transparent; border: none; font-size: 20px;
+      cursor: pointer; color: var(--ink); line-height: 1; padding: 0;
+    }
+    #panel {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; max-height: 100vh; border-radius: 0;
+      transform: translateX(100%); transition: transform 0.25s ease;
+      z-index: 2000;
+    }
+    #panel.panel-open { transform: translateX(0); }
+  }
 </style>
 </head>
 <body>
@@ -168,12 +196,13 @@
   <span class="subtitle">Milano · AMAT · 17.04.2026</span>
   <span class="count">2105 stalli</span>
   <button id="btn-info">ⓘ Info</button>
+  <button id="btn-toggle-panel">☰ Filtri</button>
 </header>
 <div id="modal-overlay">
   <div id="modal">
     <h3>Informazioni</h3>
     <p style="font-size:13px;line-height:1.6;color:var(--ink);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #d1c9b8;">
-      Questa mappa visualizza la localizzazione delle <strong>aree di carico e scarico merci</strong> presenti sul territorio del Comune di Milano, ottenuta tramite richiesta di accesso civico generalizzato (D.Lgs. 33/2013) ad AMAT. I dati includono 2.105 stalli, classificati per tipologia, orario, disposizione e municipio.
+      Questa mappa visualizza la localizzazione delle <strong>aree di carico e scarico merci</strong> presenti sul territorio del Comune di Milano, ottenuta tramite richiesta di accesso civico generalizzato (D.Lgs. 33/2013) ad AMAT. I dati includono 2.105 stalli, classificati per tipologia, orario, disposizione e municipio, presenti nel territorio di Milano con l'aggiornamento all'ultimo passaggio del rilevatore (2022/2026).
     </p>
     <div class="modal-row">
       <span class="modal-key">Autore</span>
@@ -201,6 +230,7 @@
 </div>
 <div id="map"></div>
 <div id="panel">
+  <button id="btn-panel-close" aria-label="Chiudi pannello">✕</button>
   <h2>Cerca via</h2>
   <div class="filter-group">
     <div id="search-wrap">
@@ -437,6 +467,13 @@ function showResults(results) {
   searchResults.style.display = 'block';
   searchStatus.textContent = '';
 }
+
+// Mobile panel toggle
+const btnTogglePanel = document.getElementById('btn-toggle-panel');
+const btnPanelClose  = document.getElementById('btn-panel-close');
+const sidePanel      = document.getElementById('panel');
+btnTogglePanel.addEventListener('click', () => sidePanel.classList.add('panel-open'));
+btnPanelClose.addEventListener('click',  () => sidePanel.classList.remove('panel-open'));
 
 function flyTo(lat, lon, label) {
   map.flyTo([lat, lon], 17, {duration: 1.2});
